@@ -1,0 +1,5 @@
+<?php
+$nombre1 = readline("Saisir une valeur :");
+$nombre2 = readline("Saisir une valeur :");
+echo PHP_EOL;
+echo "nombre1 et égal à ".$nombre2.", nombre2 est égal à ".$nombre1;

@@ -1,0 +1,11 @@
+<?php
+$nombre1 = readline("Saisir une valeur :");
+$nombre2 = readline("Saisir une valeur :");
+
+$boite=$nombre1;
+$nombre1=$nombre2;
+$nombre2=$boite;
+
+echo PHP_EOL;
+
+echo "nombre1 et égal à ".$nombre1.", nombre2 est égal à ".$nombre2;
