@@ -1,20 +1,50 @@
 <?php
 
-$domaine = readline("Saisir un nom de domaine ");
+function afficheListe($liste) {
+    if (count($liste) > 0) {
+        foreach ($liste as $elem) {
+            echo " $elem";
+        }
+    }
+}
 
-$emails=[
+function SiNomDomaineEstValide($adresseEmail,$requeteUtilisateur) {
+    $indiceArobase = strpos($adresseEmail,"@");
+    $nomDomaine = substr($adresseEmail, $indiceArobase + 1);
+    if ($nomDomaine == $requeteUtilisateur) {
+        return true;
+    }
+    return false;
+}
+
+$emails =[
     "Yanso"=>"yanso@free.fr",
     "Alexandre"=>"alexandre@gmail.com",
     "Zoé"=>"zoe@laposte.net",
-    "Aurore"=>"aurore@free.fr"];
+    "Aurore"=>"aurore@free.fr"
+];
 
-$noms=[];
-foreach ($emails as $nom => $emails){
-   /* if (str_contains($emails, $domaine) == true){
-        $noms[] = $nom;
-    }*/
-    if (strpos($emails, $domaine)){
-        echo"$nom a pour adresse $emails ";
-        echo PHP_EOL;
-    }
+
+$requeteUtilisateur = readline("Veuillez choisir un nom de domaine : ");
+$listeEmailChoisies = [];
+
+foreach ($emails as $nom => $emailUtilisateur) {
+    if (SiNomDomaineEstValide($emailUtilisateur,$requeteUtilisateur)) {
+        $listeEmailChoisies[] = $nom;
+    };
 }
+
+echo "La liste des nom des membres ayant le nom de domaine $requeteUtilisateur dans leurs adresses emails sont";afficheListe($listeEmailChoisies);
+
+
+
+
+
+
+
+
+
+
+
+
+
